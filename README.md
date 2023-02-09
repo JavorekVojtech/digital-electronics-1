@@ -1,4 +1,4 @@
-Alt-# Předmět DE1 
+# Předmět DE1 
 
 ###### Toto je README soubor
 
