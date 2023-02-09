@@ -1,5 +1,5 @@
-# Předmět DE1 
+Alt-# Předmět DE1 
 
 ###### Toto je README soubor
 
-Alt-# GITHUB
+~~Vojtěch Javorek~~ :shipit:
