@@ -54,8 +54,8 @@
         report "Stimulus process started";
 
         -- First test case
-        s_b <= "1001"; -- Such as "0101" if ID = xxxx56
-        s_a <= "1000"; -- Such as "0110" if ID = xxxx56
+        s_b <= "1001"; -- Such as "0101" if ID = xxxx98
+        s_a <= "1000"; -- Such as "0110" if ID = xxxx98
         wait for 100 ns;
         -- Expected output
         assert ((s_B_greater_A = '1') and
