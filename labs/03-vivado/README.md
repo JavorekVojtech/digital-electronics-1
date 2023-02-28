@@ -1,4 +1,4 @@
-# Lab 3: INSERT_YOUR_FIRSTNAME INSERT_YOUR_LASTNAME
+# Lab 3: Vojtěch Javorek
 
 ### Three-bit wide 4-to-1 multiplexer
 
@@ -8,7 +8,7 @@
 architecture Behavioral of mux_3bit_4to1 is
 begin
 
-        with sel_i select
+    with sel_i select
     f_o <= a_i when "00",
            b_i when "01",
            c_i when "10",
