@@ -44,7 +44,7 @@
 
 3. Screenshot with simulated time waveforms for LED(7:4). Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
 
-   ![EDAP](images/edaplaygroud.png)
+   ![EDAP](images/edaplayground.png)
 
 ## Homework
 Complete the decoder truth table for **common anode** 7-segment display.
