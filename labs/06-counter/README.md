@@ -35,6 +35,8 @@
 
    ![your figure]()
 
+
+
 ## Pre-Lab preparation
 
 The Nexys A7 board provides five push buttons for user applications.
