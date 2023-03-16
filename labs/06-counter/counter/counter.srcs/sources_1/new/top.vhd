@@ -51,6 +51,9 @@ architecture Behavioral of top is
   signal sig_en_250ms : std_logic;                    --! Clock enable signal for Counter0
   signal sig_cnt_4bit : std_logic_vector(3 downto 0); --! Counter0
   
+  signal sig_en_10ms : std_logic;                    --! Clock enable signal for Counter0
+  signal sig_cnt_12bit : std_logic_vector(12 downto 0); --! Counter0
+  
 begin
  
   --------------------------------------------------------
@@ -103,4 +106,32 @@ begin
   -- Connect one common anode to 3.3V
   AN <= b"1111_1110";
 
+  --------------------------------------------------------
+  -- Instance (copy) of clock_enable entity
+  --------------------------------------------------------
+  clk_en1 : entity work.clock_enable
+      generic map(
+          g_MAX => 25000000
+      )
+      port map(
+          clk => CLK100MHZ,
+          rst => BTNC,
+          ce  => sig_en_10ms
+      );
+
+  --------------------------------------------------------
+  -- Instance (copy) of cnt_up_down entity
+  --------------------------------------------------------
+  bin_cnt1 : entity work.cnt_up_down
+     generic map(
+           g_CNT_WIDTH => 12
+      )
+      port map(
+          clk => CLK100MHZ,
+          rst => BTNC,
+          en => sig_en_10ms,
+          cnt_up => SW,
+          cnt => sig_cnt_12bit
+      );
+      
 end Behavioral;
