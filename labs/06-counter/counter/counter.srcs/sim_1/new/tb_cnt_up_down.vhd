@@ -60,7 +60,7 @@ begin
   p_clk_gen : process is
   begin
 
-    while now < 750 ns loop             -- 75 periods of 100MHz clock
+    while now < 800 ns loop             -- 75 periods of 100MHz clock
 
       sig_clk_100mhz <= '0';
       wait for c_CLK_100MHZ_PERIOD / 2;
@@ -79,19 +79,51 @@ begin
   begin
 
     sig_rst <= '0';
-    wait for 12 ns;
-
-    -- Reset activated
+    wait for 30 ns;
     sig_rst <= '1';
     wait for 70 ns;
-
-    -- Reset deactivated
     sig_rst <= '0';
+    wait for 230 ns;
+    sig_rst <= '1';
+    wait for 70 ns;
+    sig_rst <= '0';
+    wait for 300 ns;
+    
+    sig_rst <= '1';
 
     wait;
 
   end process p_reset_gen;
 
+  --------------------------------------------------------
+  -- enable generation process
+  --------------------------------------------------------
+  p_en_gen : process is
+  begin
+
+    -- Enable counting
+    sig_en <= '1';
+    wait for 500 ns;
+    sig_en <= '0';
+    wait for 60 ns;
+    sig_en <= '1';
+
+  end process p_en_gen;
+  --------------------------------------------------------
+  -- direction generation process
+  --------------------------------------------------------
+  p_cnt_up : process is
+  begin
+
+    -- Change counter direction
+    sig_cnt_up <= '1';
+    wait for 300 ns;
+    sig_cnt_up <= '0';
+    wait for 200 ns;
+    sig_cnt_up <= '1';
+
+  end process p_cnt_up;
+  
   --------------------------------------------------------
   -- Data generation process
   --------------------------------------------------------
@@ -100,23 +132,9 @@ begin
 
     report "Stimulus process started";
 
-    -- Enable counting
-    sig_en <= '1';
-
-    -- Change counter direction
-    sig_cnt_up <= '1';
-    wait for 380 ns;
-    sig_cnt_up <= '0';
-    wait for 186 ns;
-
-    -- Disable counting
-    sig_en <= '0';
-    wait for 86 ns;
-    -- Enable counting again
-    sig_en <= '1';
-
     report "Stimulus process finished";
     wait;
+
 
   end process p_stimulus;
 
