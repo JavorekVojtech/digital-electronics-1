@@ -1,6 +1,6 @@
 ### Team members
 
-* Vojtěch Javorek (responsible for making README.md and description and Coding)
+* Vojtěch Javorek (responsible for making README.md and Coding)
 * Matěj Baranyk (responsible for Coding)
 * Gleb Egorov (responsible for Coding)
 
